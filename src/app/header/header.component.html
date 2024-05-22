@@ -1,1 +1,45 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg" style="background-color: #f1f8fc;">
+    <div class="container-fluid"> 
+        <div class="container-fluid" id="logo">
+            <a class="navbar-brand" href="#">
+                <img src="assets/Images/Logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchForm" aria-controls="searchForm" aria-expanded="false" aria-label="Toggle search">
+                <img id="searchicon" src="assets/Images/search-blue.svg" alt="">
+            </button>
+            <button id="btn" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="border-color: #0074c7;"></span>
+            </button>
+        </div>
+        <div id="searchetliens">
+            <div class="collapse navbar-collapse" id="searchForm">
+            <form class="navbar-search m-auto mb-2 mb-lg-0">
+                <div class="input-group">
+                    <input type="search" class="form-control me-2" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn input-group-text" type="submit">
+                        <img id="logosearch" src="assets/Images/search-blue.svg" alt="">
+                    </button>
+                </div>
+            </form>
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Bâtiments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Fabrication</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Alimentation</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        
+    </div>
+</nav>
