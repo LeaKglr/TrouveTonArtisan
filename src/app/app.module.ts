@@ -10,6 +10,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ErrorComponent } from './error/error.component';
+import { PageslegalesComponent } from './pageslegales/pageslegales.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ErrorComponent } from './error/error.component';
     HeaderComponent, 
     FicheArtisanComponent, 
     ListeArtisansComponent, 
-    ErrorComponent
+    ErrorComponent, PageslegalesComponent
   ],
   imports: [
     BrowserModule,
