@@ -1,0 +1,58 @@
+.star {
+    font-size: 24px;
+    color: #d3d3d3;
+  }
+  
+  .star.filled {
+    color: #ffca28;
+  }
+
+#utilisationsite {
+    margin-bottom: 20px;
+    h2 {
+        position: relative;
+    }
+
+    h2::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 3rem;
+        height: 0.6rem;
+        background-color: #0074c7;
+    }
+
+    #carouselExampleDark, .carousel-inner, .carousel-item {
+        width: 100%;
+        height: 300px;
+        background-color: #f1f8fc;
+    }
+
+    #number {
+        width: 25px;
+        height: 25px;
+        background-color: #0074c7;
+        text-align: center;
+        color: #f1f8fc;
+        border-radius: 50%;
+    }
+}
+
+#artisansdumois {
+    margin-bottom: 20px;
+    h2 {
+        position: relative;
+        
+    }
+
+    h2::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 3rem;
+        height: 0.6rem;
+        background-color: #82b864;
+    }
+}

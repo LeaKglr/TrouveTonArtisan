@@ -11,7 +11,50 @@
     <header><app-header></app-header></header>
     
     <main class="main">
-<p>Hi</p>
+        <div id="utilisationsite">
+            <div id="titleline">
+                <h2>{{title}}</h2>
+            </div>
+            
+            <div  id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner"> 
+                    <div *ngFor="let etape of etapes; let i = index"  [ngClass]="{'carousel-item': true, 'active': i === 0}" data-bs-interval="10000">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p id="number">{{etape.nombre}}</p>
+                            <h5>{{etape.title}}</h5>
+                            <p>{{etape.description}}</p>
+                        </div>    
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div id="artisansdumois">
+            <h2>{{artisansdumois}}</h2>
+            <ul>
+                <li *ngFor="let artisan of topArtisans">
+                    {{ artisan.name }} 
+                    <ng-container *ngFor="let filled of getStars(artisan.note)">
+                        <span [class.filled]="filled" class="star">&#9733;</span>
+                    </ng-container>
+                    - Sa spécialité : {{artisan.specialty}}
+                    - Sa localisation : {{artisan.location}}
+                </li>
+            </ul>
+        </div>
     </main>
 
     <footer><app-footer></app-footer></footer>
