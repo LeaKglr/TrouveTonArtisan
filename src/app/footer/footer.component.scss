@@ -4,71 +4,69 @@
     background-color: #0074c7;
     color: #f1f8fc;
     padding: 20px 0;
-
-    @media (min-width: 768px) {
-        #contactetadresse {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    }
-
+    
     h2 {
         margin-left: 30px;
         padding: 30px;
     }
 
-    // #contactetadresse .address, #teletmentionslegales .telephone {
-    //     display: flex;
-    //     align-items: center;
-    // }
-    
-    // #contactetadresse .address .icon, #teletmentionslegales .telephone .icon {
-    //     margin-right: 10px;
-    // }
-
-    
-
     a {
-        color: #f1f8fc;
-    }
-    
-    .address {
-        display: flex;
-        margin-right: 50px;
-
-        .icon {
-            margin-right: 10px;
+            color: #f1f8fc;
         }
-    }
-
-    #teletmentionslegales {
-        margin-left: 50px;
-
-        .telephone {
+    
+    @media (min-width: 768px) {
+        #contactetadresse {
             display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .address {
+            display: flex;
+            margin-right: 50px;
 
             .icon {
                 margin-right: 10px;
             }
         }
+        #teletmentionslegales {
+            margin-left: 50px;
+
+            .telephone {
+                display: flex;
+
+                .icon {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        #teletmentionslegales nav {
+            border-top: solid 2px white;
+            margin-top: 20px;
+        }
     }
 
-    #teletmentionslegales nav {
-        border-top: solid 2px white;
-        margin-top: 20px;
+    @media (max-width: 768px) {
+        #contactetadresse,  #teletmentionslegales {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            
+        }
+
+        #teletmentionslegales nav {
+            border-top: solid 2px white;
+            margin-top: 20px;
+        }
+        
+        .address, .telephone {
+            display: flex;
+            
+            .icon {
+                margin-right: 10px;
+            }
+        }
     }
-    
-    // @media (max-width: 768px) {
-    //     #footer h2 {
-    //         margin-left: 0;
-    //         text-align: center;
-    //     }
-    
-    //     #contactetadresse, #teletmentionslegales {
-    //         margin-left: 0;
-    //         margin-right: 0;
-    //     }
-    // }
-   
 }
