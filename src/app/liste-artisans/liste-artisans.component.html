@@ -1,1 +1,11 @@
-<p>liste-artisans works!</p>
+<div *ngIf="artisans && artisans.length">
+    <h2>Artisans dans la catégorie "{{ category }}"</h2>
+    <ul>
+      <li *ngFor="let artisan of artisans | filterByCategory:category">
+        {{ artisan.name }} - Note: {{ artisan.note }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!artisans || artisans.length === 0">
+    <p>Aucun artisan trouvé dans cette catégorie.</p>
+  </div>

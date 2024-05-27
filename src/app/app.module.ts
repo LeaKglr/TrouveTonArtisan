@@ -12,6 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { ErrorComponent } from './error/error.component';
 import { PageslegalesComponent } from './pageslegales/pageslegales.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ArtisansService } from './artisans.service';
+import { FilterByCategoryPipe } from './filter-by-category.pipe';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent, 
     FicheArtisanComponent, 
     ListeArtisansComponent, 
-    ErrorComponent, PageslegalesComponent
+    ErrorComponent, 
+    PageslegalesComponent, 
+    FilterByCategoryPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ArtisansService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
