@@ -9,6 +9,7 @@ export interface Artisans {
   note: number;
   specialty: string;
   location: string;
+  category: string;
 }
 
 @Injectable({
@@ -29,4 +30,15 @@ export class ArtisansService {
     )
   }
 
+  getArtisans(): Observable<Artisans[]> {
+    return this.http.get<Artisans[]>(this.dataUrl);
+  }
+
+  getAllArtisans(): Observable<Artisans[]> {
+    return this.http.get<Artisans[]>(this.dataUrl);
+  }
+
+  // getArtisansParCategories(category: string): Observable<Artisans[]> {
+  //   return this.http.get<Artisans[]>(`${this.dataUrl}?category=${category}`);
+  // }
 }

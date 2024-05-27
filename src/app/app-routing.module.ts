@@ -14,7 +14,10 @@ const routes: Routes = [
   {path: "mentionslegales", component: PageslegalesComponent},
   {path: "donneespersonnelles", component: PageslegalesComponent},
   {path: "accessibilite", component: PageslegalesComponent},
-  {path: "cookies", component: PageslegalesComponent}
+  {path: "cookies", component: PageslegalesComponent},
+  { path: 'category/:category', component: ListeArtisansComponent },
+  { path: '', redirectTo: '/category/all', pathMatch: 'full' },
+  { path: '**', redirectTo: '/category/all' }
 ];
 
 @NgModule({
