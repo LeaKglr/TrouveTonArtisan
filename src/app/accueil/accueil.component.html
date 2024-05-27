@@ -27,7 +27,7 @@
                     <div *ngFor="let etape of etapes; let i = index"  [ngClass]="{'carousel-item': true, 'active': i === 0}" data-bs-interval="10000">
                         <div class="carousel-caption d-none d-md-block">
                             <p id="number">{{etape.nombre}}</p>
-                            <h5>{{etape.title}}</h5>
+                            <h3>{{etape.title}}</h3>
                             <p>{{etape.description}}</p>
                         </div>    
                   </div>
@@ -42,18 +42,26 @@
                 </button>
               </div>
         </div>
-        <div id="artisansdumois">
+        <div id="artisansdumois" >
             <h2>{{artisansdumois}}</h2>
-            <ul>
-                <li *ngFor="let artisan of topArtisans">
-                    {{ artisan.name }} 
-                    <ng-container *ngFor="let filled of getStars(artisan.note)">
-                        <span [class.filled]="filled" class="star">&#9733;</span>
-                    </ng-container>
-                    - Sa spécialité : {{artisan.specialty}}
-                    - Sa localisation : {{artisan.location}}
-                </li>
-            </ul>
+            <div id="card" class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col" *ngFor="let artisan of topArtisans" >
+                    <div class="card border-success mb-3"  style="max-width: 23rem;">
+                        <div class="card-header" >
+                            <h4>{{ artisan.name }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Sa spécialité : </strong>{{artisan.specialty}}</p>
+                            <p><strong>Sa localisation : </strong>{{artisan.location}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <ng-container *ngFor="let filled of getStars(artisan.note)">
+                                <span [class.filled]="filled" class="star">&#9733;</span>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 

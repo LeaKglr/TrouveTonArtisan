@@ -55,4 +55,16 @@
         height: 0.6rem;
         background-color: #82b864;
     }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+
+        .card-header, .card-body, .card-footer {
+            text-align: center;
+        }
+    }
 }
