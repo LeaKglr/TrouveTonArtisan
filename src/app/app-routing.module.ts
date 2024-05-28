@@ -15,9 +15,14 @@ const routes: Routes = [
   {path: "donneespersonnelles", component: PageslegalesComponent},
   {path: "accessibilite", component: PageslegalesComponent},
   {path: "cookies", component: PageslegalesComponent},
+  // { path: "category/batiment", component: ListeArtisansComponent },
+  // { path: "category/services", component: ListeArtisansComponent },
+  // { path: "category/fabrication", component: ListeArtisansComponent },
+  // { path: "category/alimentation", component: ListeArtisansComponent },
+
   { path: 'category/:category', component: ListeArtisansComponent },
-  { path: '', redirectTo: '/category/all', pathMatch: 'full' },
-  { path: '**', redirectTo: '/category/all' }
+  // { path: '', redirectTo: '/category/all', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/category/all' }
 ];
 
 @NgModule({
