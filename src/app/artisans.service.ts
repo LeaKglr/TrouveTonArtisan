@@ -38,6 +38,10 @@ export class ArtisansService {
     return this.http.get<Artisans[]>(this.dataUrl);
   }
 
+  // getAllArtisans(): Observable<Artisans[]> {
+  // return this.http.get<Artisans[]>(`${this.dataUrl}?category=${category}`);
+  // }
+
   // getArtisansParCategories(category: string): Observable<Artisans[]> {
   //   return this.http.get<Artisans[]>(`${this.dataUrl}?category=${category}`);
   // }
