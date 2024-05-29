@@ -10,6 +10,9 @@ export interface Artisans {
   specialty: string;
   location: string;
   category: string;
+  about: string;
+  email: string;
+  website: string;
 }
 
 @Injectable({
@@ -36,6 +39,12 @@ export class ArtisansService {
 
   getAllArtisans(): Observable<Artisans[]> {
     return this.http.get<Artisans[]>(this.dataUrl);
+  }
+
+  getArtisanByName(name: string): Observable<Artisans | undefined> {
+    return this.http.get<Artisans[]>(this.dataUrl).pipe(
+      map(artisans => artisans.find(artisan => artisan.name === name))
+    );
   }
 
   // getAllArtisans(): Observable<Artisans[]> {

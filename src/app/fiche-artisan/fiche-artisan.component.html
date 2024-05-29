@@ -1,1 +1,38 @@
-<p>fiche-artisan works!</p>
+<app-header></app-header>
+<div id="ficheartisan">
+    <div *ngIf="artisan" id="artisan">
+    <h2>{{ artisan.name }}</h2>
+    <div id="etoiles">
+        <ng-container *ngFor="let filled of getStars(artisan.note)">
+        <span [class.filled]="filled" class="star">&#9733;</span>
+    </ng-container>
+    </div>
+    <p id="specialite">Spécialité : {{ artisan.specialty }}</p>
+    <p id="localisation">Localisation : {{ artisan.location }}</p>
+    <p id="apropos">À propos : {{ artisan.about }}</p>
+    <a *ngIf="artisan.website" [href]="artisan.website" target="_blank">Visitez le site web</a>
+  </div>
+  <div *ngIf="!artisan">
+    <p>Chargement...</p>
+  </div>
+  <div id="contact">
+    <h2>Formulaire de contact</h2>
+    <form action="">
+        <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Nom</label>
+            <input type="nom" class="form-control" id="exampleInputName" placeholder="Nom">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputObject" class="form-label">Objet</label>
+            <input type="objet" class="form-control" id="exampleInputObject" placeholder="Objet">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="exampleFormControlMessage" rows="3" placeholder="Votre message"></textarea>
+          </div>
+          <button type="submit" class="btn" style="background-color: #0074c7; color: #f1f8fc;">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

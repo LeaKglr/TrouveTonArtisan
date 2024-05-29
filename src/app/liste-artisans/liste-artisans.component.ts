@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisansService, Artisans } from '../artisans.service';
 import { Subscription, firstValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-artisans',
@@ -15,7 +16,7 @@ export class ListeArtisansComponent implements OnInit, OnDestroy {
   category: string | null = null;
   private routeSub: Subscription | null = null;
 
-  constructor (private artisansService: ArtisansService, private route: ActivatedRoute) {}
+  constructor (private router: Router,private artisansService: ArtisansService, private route: ActivatedRoute) {}
 
 
   ngOnInit(): void {
@@ -60,6 +61,7 @@ export class ListeArtisansComponent implements OnInit, OnDestroy {
   getStars(note:number): boolean[] {
     return Array(5).fill(false).map((_,i) => i < note);
   }
+
 
   // async loadArtisans(): Promise<void> {
   //   try {
