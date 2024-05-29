@@ -9,20 +9,14 @@ import { PageslegalesComponent } from './pageslegales/pageslegales.component';
 
 const routes: Routes = [
   {path: "", component: AccueilComponent},
-  {path: "FicheArtisan", component: FicheArtisanComponent},
+  // {path: "FicheArtisan", component: FicheArtisanComponent},
   {path: "ListeArtisans", component: ListeArtisansComponent},
   {path: "mentionslegales", component: PageslegalesComponent},
   {path: "donneespersonnelles", component: PageslegalesComponent},
   {path: "accessibilite", component: PageslegalesComponent},
   {path: "cookies", component: PageslegalesComponent},
-  // { path: "category/batiment", component: ListeArtisansComponent },
-  // { path: "category/services", component: ListeArtisansComponent },
-  // { path: "category/fabrication", component: ListeArtisansComponent },
-  // { path: "category/alimentation", component: ListeArtisansComponent },
-
-  { path: 'category/:category', component: ListeArtisansComponent },
-  // { path: '', redirectTo: '/category/all', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/category/all' }
+  {path: 'category/:category', component: ListeArtisansComponent},
+  {path: 'artisan/:name', component: FicheArtisanComponent}
 ];
 
 @NgModule({
