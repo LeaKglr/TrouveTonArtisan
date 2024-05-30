@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: "accessibilite", component: PageslegalesComponent},
   {path: "cookies", component: PageslegalesComponent},
   {path: 'category/:category', component: ListeArtisansComponent},
-  {path: 'artisan/:name', component: FicheArtisanComponent}
+  {path: 'artisan/:name', component: FicheArtisanComponent},
+  {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({

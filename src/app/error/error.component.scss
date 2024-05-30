@@ -1,0 +1,14 @@
+#erreur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 400px;
+        height: auto;
+    }
+
+    p {
+        font-size: 100px;
+    }
+}
