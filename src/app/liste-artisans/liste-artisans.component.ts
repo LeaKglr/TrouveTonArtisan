@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ArtisansService, Artisans } from '../artisans.service';
 import { Subscription, firstValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-liste-artisans',
@@ -15,17 +16,38 @@ export class ListeArtisansComponent implements OnInit, OnDestroy {
   filteredArtisans: Artisans[] = [];
   category: string | null = null;
   private routeSub: Subscription | null = null;
+  searchTerm: string = '';
+  private searchSub: Subscription | null = null;
+  private subscriptions: Subscription[] = [];
 
-  constructor (private router: Router,private artisansService: ArtisansService, private route: ActivatedRoute) {}
+  constructor (
+    private router: Router,
+    private artisansService: ArtisansService, 
+    private route: ActivatedRoute,
+    private searchService: SearchService,
+  ) {}
 
 
   ngOnInit(): void {
-    // Abonnez-vous aux changements de paramètres de route
     this.routeSub = this.route.paramMap.subscribe(params => {
       this.category = params.get('category');
-      console.log('Category from route:', this.category);
       this.loadArtisans();
     });
+
+    this.searchSub = this.searchService.searchTerm$.subscribe(term => {
+      this.searchTerm = term;
+      this.applyFilter();
+    });
+
+    const searchSubscription = this.searchService.searchTerm$.subscribe(searchTerm => {
+      this.filteredArtisans = this.artisans.filter(artisan =>
+        artisan.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        artisan.specialty.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        artisan.location.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+
+    this.subscriptions.push(searchSubscription);
   }
 
   ngOnDestroy(): void {
@@ -33,29 +55,37 @@ export class ListeArtisansComponent implements OnInit, OnDestroy {
     if (this.routeSub) {
       this.routeSub.unsubscribe();
     }
+    if (this.searchSub) {
+      this.searchSub.unsubscribe();
+    }
   }
 
   async loadArtisans(): Promise<void> {
     try {
       const allArtisans = await firstValueFrom(this.artisansService.getAllArtisans());
-      console.log('All Artisans:', allArtisans); // Log de tous les artisans
       if (this.category) {
         const normalizedCategory = this.category?.toLowerCase().trim();
-        console.log(`Normalized Category: "${normalizedCategory}"`);
-        console.log(this.category)
         this.filteredArtisans = allArtisans.filter(artisan => {
           const artisanCategory = artisan.category.toLowerCase().trim();
           const matches = artisanCategory === normalizedCategory;
-          console.log(`Comparing artisan category "${artisanCategory}" with selected category "${normalizedCategory}": ${matches}`); // Log de la comparaison
           return matches;
         });
-        console.log('Filtered Artisans:', this.filteredArtisans); // Log des artisans filtrés
       } else {
         this.filteredArtisans = allArtisans;
       }
+      this.applyFilter();
     } catch (error) {
       console.error('Erreur', error);
     }
+  }
+
+  applyFilter(): void {
+    const searchTermNormalized = this.searchTerm.toLowerCase().trim();
+    this.filteredArtisans = this.artisans.filter(artisan =>
+      artisan.name.toLowerCase().includes(searchTermNormalized) ||
+      artisan.specialty.toLowerCase().includes(searchTermNormalized) ||
+      artisan.location.toLowerCase().includes(searchTermNormalized)
+    );
   }
 
   getStars(note:number): boolean[] {
