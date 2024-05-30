@@ -14,6 +14,8 @@ import { PageslegalesComponent } from './pageslegales/pageslegales.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArtisansService } from './artisans.service';
 import { FilterByCategoryPipe } from './filter-by-category.pipe';
+import { FilterArtisansPipe } from './filter-artisans.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { FilterByCategoryPipe } from './filter-by-category.pipe';
     ListeArtisansComponent, 
     ErrorComponent, 
     PageslegalesComponent, 
-    FilterByCategoryPipe
+    FilterByCategoryPipe, 
+    FilterArtisansPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ArtisansService],
   bootstrap: [AppComponent]
